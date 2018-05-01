@@ -346,10 +346,85 @@
             })
 
         });
+
         function myFunction() {
-                var x = document.getElementById("inputTask").value;
-                document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
+            var x = document.getElementById("inputTask").value;
+            document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
+        }
+
+        /**
+         * takes API data (JSON/object) and turns it into elements on the page
+         * @param {object} NYTData - object containing NYT API data
+         */
+        function updatePage(NYTData) {
+            // get from the form the number of results to display
+            // api doesn't have a "limit" parameter, so we have to do this ourselves
+            var numArticles = $("#article-count").val();
+
+            // log the NYTData to console, where it will show up as an object
+            console.log(NYTData);
+            console.log("------------------------------------");
+
+            // loop through and build elements for the defined number of articles
+            for (var i = 0; i < numArticles; i++) {
+
+                // get specific article info for current index
+                var article = NYTData.response.docs[i];
+
+                // increase the articleCount (track article # - starting at 1)
+                var articleCount = i + 1;
+
+                // create the HTML well (section) and add the article content for each
+                var $articleWell = $("<article>");
+                $articleWell.addClass("well");
+                $articleWell.attr("id", "article-well-" + articleCount);
+
+                // add the newly created element to the DOM
+                $("#well-section").append($articleWell);
+
+                // if the article has a headline, log and append to $articleWell
+                var headline = article.headline;
+
+                if (headline && headline.main) {
+                    console.log(headline.main);
+
+                    $articleWell.append(
+                        "<h3 class='articleHeadline'>" +
+                        "<span class='label label-primary'>" + articleCount + "</span>" +
+                        "<strong> " + headline.main + "</strong></h3>"
+                    );
+                }
+
+                // if the article has a byline, log and append to $articleWell
+                var byline = article.byline;
+
+                if (byline && byline.original) {
+                    console.log(byline.original);
+
+                    $articleWell.append("<h5>" + byline.original + "</h5>");
+                }
+
+                // log section, and append to document if exists
+                var section = article.section_name;
+                console.log(article.section_name);
+                if (section) {
+                    $articleWell.append("<h5>Section: " + section + "</h5>");
+                }
+
+                // log published date, and append to document if exists
+                var pubDate = article.pub_date;
+                console.log(article.pub_date);
+                if (pubDate) {
+                    $articleWell.append("<h5>" + article.pub_date + "</h5>");
+                }
+
+                // append and log url
+                $articleWell.append(
+                    "<a href='" + article.web_url + "'>" + article.web_url + "</a>"
+                );
+                console.log(article.web_url);
             }
+        }
     </script>
 </body>
 
