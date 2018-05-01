@@ -1,0 +1,186 @@
+ 
+  @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+
+  /* .container {
+    background-color: #232323;
+    background-image: url("desk.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  } */
+
+  body{
+    background-image: url("../images/desk.jpg");
+  }
+  
+  .container svg {
+    max-width: 45rem;
+    width: 100%;
+    height: auto;
+    fill: none;
+    stroke: white;
+    stroke-width: 4;
+  }
+  
+  .container svg tspan>tspan {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: -1500;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(1) {
+    animation: draw 300ms 150ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(2) {
+    animation: draw 300ms 300ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(3) {
+    animation: draw 300ms 450ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(4) {
+    animation: draw 300ms 600ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(5) {
+    animation: draw 300ms 750ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(6) {
+    animation: draw 300ms 900ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(7) {
+    animation: draw 300ms 1050ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(8) {
+    animation: draw 300ms 1200ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(9) {
+    animation: draw 300ms 1350ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(10) {
+    animation: draw 300ms 1500ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(11) {
+    animation: draw 300ms 1650ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(12) {
+    animation: draw 300ms 1800ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(13) {
+    animation: draw 300ms 1950ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(14) {
+    animation: draw 300ms 2100ms forwards;
+  }
+  
+  .container svg tspan>tspan:nth-of-type(15) {
+    animation: draw 300ms 2250ms forwards;
+  }
+  
+  @keyframes draw {
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  #container {
+    border-top: 5%;
+    border: 1px solid #333;
+    border-radius: 20px;
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    background: #333;
+  }
+  
+  #timer {
+    color: #f00;
+    font-size: 50px;
+    margin: 10px auto;
+    border: 5px solid red;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+  }
+  
+  #time {
+    margin-top: 70px;
+    z-index: 1;
+    position: relative;
+  }
+  
+  
+  #filler {
+    background: #ddffcc;
+    height: 0px;
+    width: 200px;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  #buttons button {
+    background: #4da6ff;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+    width: 90px;
+    margin: 10px auto;
+    font-size: 14px;
+    height: 50px;
+    border-radius: 50px;
+  }
+  
+  #buttons button#start {
+    background: #0c0;
+  }
+  
+  #buttons button#longBreak {
+    background: #080;
+  }
+  
+  #buttons button#stop {
+    background: #f00;
+  }
+
+  .typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
