@@ -39,6 +39,7 @@ db.sequelize.sync().then(function () {
 
     })
 
+
 }).catch(function (err) {
     console.log("error: " + err);
     console.log("theres something wrong with your sync");

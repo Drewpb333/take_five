@@ -1,19 +1,6 @@
 //modal prompts 1 and 2 as well as input storage
 $(document).ready(function () {
-
-    //login criteria
-    var Username = $("#userName");
-    var passWord = $("#passWord");
-    console.log (Username, passWord);
-
-
-    //new User Criteria
-    var firstName = $("#nFirstName");
-    var lastName = $("#nLastName");
-    var dUserName = $("#nUserName");
-    var dPassword = $("#nPsw");
-    console.log(firstName, lastName, dUserName, dPassword);
-
+    //MODAL INPUT SECTION
     $('.feed').hide();
     $('#loginModalCenter').modal('show');
     $(document).on('click', '#login-btn', function () {
