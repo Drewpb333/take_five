@@ -24,7 +24,7 @@ var contentFeed = {
                 }
 
                 console.log(articlesObj);
-
+              
                 cb(articlesObj);
             }
         })
@@ -61,3 +61,4 @@ contentFeed.newsFeed(function(obj){console.log(obj)});
 contentFeed.redditFeed(function(obj){console.log(obj)});
 
 module.exports = contentFeed;
+
