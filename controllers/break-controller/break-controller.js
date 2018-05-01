@@ -59,8 +59,8 @@ var contentFeed = {
 
 
 
-contentFeed.newsFeed(function(obj){console.log(obj)});
-contentFeed.redditFeed(function(obj){console.log(obj)});
+// contentFeed.newsFeed(function(obj){console.log(obj)});
+// contentFeed.redditFeed(function(obj){console.log(obj)});
 
 module.exports = contentFeed;
 
