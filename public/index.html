@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Take5!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/assets/css/style.css" media="screen" title="no title">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/assets/css/timer.css" type="text/css" rel="stylesheet" />
+    <script src="/authjs/signup.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div class="modal fade" id="loginModalCenter" tabindex="-1" role="dialog" aria-labelledby="loginModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalCenterTitle">Login</h5>
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="modalTitle text-center">
+                        <h2> Welcome to Take5!</h2>
+                    </div>
+
+                    <div class="container">
+                        <label for="firstName">
+                            <b>User Name:</b>
+                        </label>
+
+                        <input type="text" placeholder="Enter Username" name="userName" id="userName-signIn" required>
+
+                        <label for="psw">
+                            <b>Password:</b>
+                        </label>
+                        <input type="password" placeholder="Enter Password" name="psw" id="passWord-signIn" required>
+
+                        <button type="submit" id="login-btn">Login</button>
+
+                        <!-- <button class="btn btn-primary" id="close-btn" type="submit">Close</button> -->
+                        <button class="btn btn-danger" id="signup-btn" type="submit">Don't Have an Account?</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signUpModalCenterTitle">Sign Up</h5>
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="modalTitle text-center">
+                        <h2> Fill Out Sign Up Info!</h2>
+                    </div>
+
+                    <div class="container">
+                        <label for="nfirstName">
+                            <b>First Name:</b>
+                        </label>
+                        <input type="text" placeholder="Enter your First Name" name="firstName" id="firstName-signUp"required>
+
+                        <label for="nlastName">
+                            <b>Last Name:</b>
+                        </label>
+                        <input type="text" placeholder="Enter your Last Name" name="lastName" id="lastName-signUp"required>
+
+                        <label for="userName">
+                            <b>User Name:</b>
+                        </label>
+                        <input type="text" placeholder="Enter your desired Username" name="userName" id="userName-signUp" required>
+
+                        <label for="psw">
+                            <b>Password:</b>
+                        </label>
+                        <input type="password" placeholder="Enter your desired Password" name="psw" id="passWord-signUp" required>
+
+                        <button type="submit" id="signUp-btn">Sign Up</button>
+                        <!-- <button class="btn btn-primary" id="close-btn" type="submit">Close</button> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row d-flex d-md-block flex-nowrap wrapper">
+            <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+                <div class="list-group border-0 card text-center text-md-left">
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fa fa-clock"></i>
+                        <span class="d-none d-md-inline">Take 5</span>
+                    </a>
+                    <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-address-card" aria-hidden="true"></i>
+                        <span class="d-none d-md-inline">GET STARTED</span>
+                    </a>
+                    <div class="collapse" id="menu1" data-parent="#sidebar">
+                        <a href="#menu1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 1 </a>
+                        <div class="collapse" id="menu1sub1" data-parent="#menu1">
+                            <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem a</a>
+                            <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem b</a>
+                            <a href="#menu1sub1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem c </a>
+                            <div class="collapse" id="menu1sub1sub1">
+                                <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem c.1</a>
+                                <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem c.2</a>
+                            </div>
+                            <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem d</a>
+                            <a href="#menu1sub1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem e </a>
+                            <div class="collapse" id="menu1sub1sub2">
+                                <a href="#" class="list-group-item">Subitem e.1</a>
+                                <a href="#" class="list-group-item">Subitem e.2</a>
+                            </div>
+                        </div>
+                        <a href="#menu1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 2</a>
+                        <div class="collapse" id="menu1sub2" data-parent="#menu1">
+                            <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 1 a</a>
+                            <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 2 b</a>
+                            <a href="#menu1sub1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 3 c </a>
+                            <div class="collapse" id="menu1sub1sub1">
+                                <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem 3 c.1</a>
+                                <a href="#" class="list-group-item" data-parent="#menu1sub1sub1">Subitem 3 c.2</a>
+                            </div>
+                            <a href="#" class="list-group-item" data-parent="#menu1sub1">Subitem 4 d</a>
+                            <a href="#menu1sub1sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 5 e </a>
+                            <div class="collapse" id="menu1sub1sub2">
+                                <a href="#" class="list-group-item" data-parent="#menu1sub1sub2">Subitem 5 e.1</a>
+                                <a href="#" class="list-group-item" data-parent="#menu1sub1sub2">Subitem 5 e.2</a>
+                            </div>
+                        </div>
+                        <a href="#" class="list-group-item">Subitem 3</a>
+                    </div>
+                    <a href="#" class="list-group-item d-inline-block collapsed">
+                        <i class="fa fa-film"></i>
+                        <span class="d-none d-md-inline">AGENDAS</span>
+                    </a>
+                    <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-book"></i>
+                        <span class="d-none d-md-inline">MODE</span>
+                    </a>
+                    <div class="collapse" id="menu3" data-parent="#sidebar">
+                        <a href="#" class="list-group-item" data-parent="#menu3">3.1</a>
+                        <a href="#menu3sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">3.2 </a>
+                        <div class="collapse" id="menu3sub2">
+                            <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 a</a>
+                            <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 b</a>
+                            <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 c</a>
+                        </div>
+                        <a href="#" class="list-group-item" data-parent="#menu3">3.3</a>
+                    </div>
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fa fa-heart"></i>
+                        <span class="d-none d-md-inline">APPS</span>
+                    </a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fa fa-list"></i>
+                        <span class="d-none d-md-inline">CONTACT US</span>
+                    </a>
+                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="d-none d-md-inline">REPORTS</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
+            <!-- <a href="#" data-target="#sidebar" data-toggle="collapse">
+                        <i class="fa fa-navicon fa-2x py-2 p-1"></i>
+                    </a> -->
+            <div class="w3-container w3-center w3-animate-zoom">
+                <div class="page-header">
+
+                    <div class="col-lg-12">
+                        <svg viewBox="0 0 1418 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>TAKE5</title>
+                            <g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="0">
+                                <text id="@WebDesignerMag" stroke="#fff" fill="#645F5A" font-weight="normal" font-family="PermanentMarker-Regular, Permanent Marker"
+                                    font-size="144">
+                                    <tspan x="3" y="109">
+                                        <!--
+                                                            -->
+                                        <tspan>#</tspan>
+                                        <!--
+                                                            -->
+                                        <tspan>T</tspan>
+                                        <!--
+                                                            -->
+                                        <tspan>A</tspan>
+                                        <!--
+                                                            -->
+                                        <tspan>K</tspan>
+                                        <!--
+                                                            -->
+                                        <tspan>E</tspan>
+                                        <!--
+                                                            -->
+                                        <tspan> </tspan>
+                                        <!--
+                                                            -->
+                                        <tspan>5</tspan>
+                                </text>
+                                <hr>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container">
+                <div class='clock'>
+                    <div class='hand'>
+                    </div>
+                </div>
+                <div id="pomodoro-app">
+                    <div id="container">
+                        <div id="timer">
+                            <div id="time">
+                                <span id="minutes">25</span>
+                                <span id="colon">:</span>
+                                <span id="seconds">00</span>
+                            </div>
+                            <div id="filler"></div>
+                        </div>
+                        <div id="buttons">
+                            <button id="start">Work</button>
+                            <button id="stop">Stop</button>
+                        </div>
+                        <select id="options">
+                            <option value="30">30 minutes</option>
+                            <option value="60">60 minutes</option>
+                            <option value="90">90 minutes</option>
+                            <option value="120">120 minutes</option>
+
+
+                            <option value="test">Test</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="agendaApp">
+                    <div id="container">
+                        <form>
+                            <div class="form-group">
+                                TASK:
+                                <input type="text" id="inputTask">
+
+                                <p>Click Submit to add to your Agenda</p>
+
+                            </div>
+
+                        </form>
+                        <button onclick='myFunction()'>SUBMIT</button>
+                        <div="row">
+                            <div="col-md-8" class="line-1 anim-typewriter">
+
+                                <h1 id="myAgenda"></h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container feed">
+                <div class="card mb-3">
+                    <img class="card-img-top" src="/assets/images/Bbc_news.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">FEED 1</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nesciunt voluptas dicta beatae,
+                            sed eaque iure repudiandae accusamus iusto omnis eligendi porro obcaecati odio animi. Natus dolores
+                            vitae hic obcaecati?</p>
+                        <p class="card-text">
+                            <small class="text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores eligendi nostrum, obcaecati,
+                                beatae voluptatibus iusto hic quam, perferendis eos molestias reiciendis! Sit nesciunt, ratione
+                                tempora quae at ex eos.</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">FEED 2</h5>
+                        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem error blanditiis aliquam dolorum
+                            laborum corrupti tenetur quas, possimus odio, quaerat, nobis velit ea excepturi dolor sapiente
+                            labore at quisquam commodi.</p>
+                        <p class="card-text">
+                            <small class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores rem eos eum fuga consectetur!
+                                Inventore, corrupti ratione explicabo doloremque error laboriosam excepturi id dolore dicta,
+                                voluptatibus assumenda consequatur in blanditiis?</small>
+                        </p>
+                    </div>
+                    <img class="card-img-bottom" src="/assets/images/Reddit.jpg" alt="Card image cap" id="feedImage">
+                </div>
+            </div>
+    </div>
+
+
+    <script src="../../../controllers/timer-controller.js"></script>
+    <script src="../js/index.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.feed').hide();
+            $('#loginModalCenter').modal('show');
+            $(document).on('click', '#login-btn', function () {
+
+                // on sign in send request to login and populate all account stuff
+                $('#loginModalCenter').modal('');
+                // hide the modal
+                // show the home screen
+                
+
+            });
+
+            $(document).on('click', '#close-btn', function () {
+                console.log("test");
+                $('#loginModalCenter').modal('hide');
+                $("#signUpModal").modal("hide");
+            });
+
+            $(document).on('click', '#signup-btn', function () {
+                $('#loginModalCenter').modal("hide");
+                $('#signUpModal').modal('show');
+            })
+
+        });
+        function myFunction() {
+                var x = document.getElementById("inputTask").value;
+                document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
+            }
+    </script>
+    
+</body>
+
+</html>
