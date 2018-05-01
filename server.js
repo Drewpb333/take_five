@@ -28,6 +28,9 @@ var authRoute = require("./routes/auth-routes.js")(app, passport);
 // will need a route for html routing
 // will need a route for api routing
 
+
+require("./routes/api-routes.js")(app);
+
 // load passport strats
 require("./config/passport/passport.js")(passport, models.user);
 

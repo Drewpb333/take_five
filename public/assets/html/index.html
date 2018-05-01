@@ -36,16 +36,19 @@
                             <b>User Name:</b>
                         </label>
 
+
                         <input type="text" placeholder="Enter Username" name="userName" id="userName" required>
                         <label for="psw">
                             <b>Password:</b>
                         </label>
                         <input type="password" placeholder="Enter Password" name="passWord" id="passWord" required>
 
+
                         <button type="submit" id="login-btn">Login</button>
 
                         <!-- <button class="btn btn-primary" id="close-btn" type="submit">Close</button> -->
                         <button class="btn btn-danger" id="noAcct-btn" type="submit">Don't Have an Account?</button>
+
 
                     </div>
                 </div>
@@ -67,25 +70,27 @@
                     </div>
 
                     <div class="container">
-                        <label for="nfirstName">
+
+                        <label for="firstName">
                             <b>First Name:</b>
                         </label>
-                        <input type="text" placeholder="Enter your First Name" name="nFirstName" id="nFirstName" required>
+                        <input type="text" placeholder="Enter your First Name" name="firstName" required>
 
-                        <label for="nlastName">
+                        <label for="lastName">
                             <b>Last Name:</b>
                         </label>
-                        <input type="text" placeholder="Enter your Last Name" name="nLastName" id="nLastName" required>
+                        <input type="text" placeholder="Enter your Last Name" name="lastName" required>
 
                         <label for="userName">
                             <b>User Name:</b>
                         </label>
-                        <input type="text" placeholder="Enter your desired Username" name="nUserName" id="nUserName" required>
+                        <input type="text" placeholder="Enter your desired Username" name="userName" required>
+
 
                         <label for="psw">
                             <b>Password:</b>
                         </label>
-                        <input type="password" placeholder="Enter your desired Password" name="nPsw" id="nPsw" required>
+                        <input type="password" placeholder="Enter your desired Password" name="psw" required>
 
                         <button type="submit" id="signUp-btn">Sign Up</button>
                         <!-- <button class="btn btn-primary" id="close-btn" type="submit">Close</button> -->
@@ -190,7 +195,11 @@
 
                     <div class="col-lg-12">
                         <svg viewBox="0 0 1418 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                          
                             <title>TAKE5</title>
+
+
                             <g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="0">
                                 <text id="@WebDesignerMag" stroke="#fff" fill="#645F5A" font-weight="normal" font-family="PermanentMarker-Regular, Permanent Marker"
                                     font-size="144">
@@ -254,6 +263,7 @@
 
                             <option value="test">Test</option>
 
+
                         </select>
                     </div>
                 </div>
@@ -269,6 +279,7 @@
                             </div>
 
                         </form>
+
                         <button onclick='myFunction()'>SUBMIT</button>
                         <div="row">
                             <div="col-md-8" class="line-1 anim-typewriter">
@@ -279,7 +290,9 @@
             </div>
             <div class="container feed">
                 <div class="card mb-3">
+
                     <img class="card-img-top" src="../images/Bbc_news.png" alt="Card image cap">
+
                     <div class="card-body">
                         <h5 class="card-title">FEED 1</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nesciunt voluptas dicta beatae,
@@ -304,14 +317,18 @@
                                 voluptatibus assumenda consequatur in blanditiis?</small>
                         </p>
                     </div>
+
                     <img class="card-img-bottom" src="../images/Reddit.jpg" alt="Card image cap" id="feedImage">
+
                 </div>
             </div>
     </div>
 
 
+
     <script src="../../../controllers/timer-controller.js"></script>
     <script src="../js/index.js"></script>
+
 
 
 
@@ -331,6 +348,7 @@
             $(document).on('click', '#close-btn', function () {
                 console.log("test");
                 $('#loginModalCenter').modal('hide');
+
                 $("#signUpModal").modal("hide");
             });
 
@@ -344,7 +362,10 @@
                 var x = document.getElementById("inputTask").value;
                 document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
             }
+
     </script>
+
+
 
 </body>
 
