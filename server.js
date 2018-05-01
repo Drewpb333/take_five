@@ -35,10 +35,7 @@ db.sequelize.sync().then(function () {
             console.log(err);
             console.log("There was an error in the sync");
         }
-
-
     })
-
 
 }).catch(function (err) {
     console.log("error: " + err);
