@@ -1,34 +1,42 @@
-module.exports = function(sequelize, Sequelize) {
-    console.log("its getting here");
-    var User = sequelize.define('user', {
-        id: {
-            autoIncrement: true,
-            primaryKey: true,
-            type: Sequelize.INTEGER
-        },
-        firstName: {
-            type: Sequelize.STRING,
-            notEmpty: true,
-        },
-        lastName: {
-            type: Sequelize.STRING,
-            notEmpty: true
-        },
-        userName: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        passWord: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        createdAt: {
-            type: Sequelize.DATE,
-            defaultValue: Sequelize.NOW
-        },
-        updatedAt: {
-            type: Sequelize.DATE
-        }
-    });
-    return User;
-}
+// Requiring bcrypt for password hashing. Using the bcrypt-nodejs version as the regular bcrypt module
+// sometimes causes errors on Windows machines
+var bcrypt = require("bcrypt-nodejs");
+// Creating our User model
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define("user", {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    // The password cannot be null
+    passWord: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  });
+  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  User.prototype.validPassword = function(passWord) {
+    return bcrypt.compareSync(passWord, this.passWord);
+  };
+  // Hooks are automatic methods that run during various phases of the User Model lifecycle
+  // In this case, before a User is created, we will automatically hash their password
+  User.hook("beforeCreate", function(User) {
+    User.passWord = bcrypt.hashSync(User.passWord, bcrypt.genSaltSync(10), null);
+  });
+  return User;
+};
+

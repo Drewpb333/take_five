@@ -1,41 +1,33 @@
-// requirements
+// Requiring necessary npm packages
 var express = require("express");
-var app = express();
-var passport = require("passport");
-var session = require("express-session");
 var bodyParser = require("body-parser");
-var env = require("dotenv").load();
-var exphbs = require("express-handlebars");
-var authController = require("./controllers/auth-controller.js");
+var session = require("express-session");
+var sequelize = require("sequelize");
+// Requiring passport as we've configured it
+var passport = require("./config/passport");
 
-// PORT setup
+// Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
+var db = require("./models");
 
-// Body Parser
+// Creating express app and configuring middleware needed for authentication
+var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
-// for passport
-app.use(session({secret: 'taako', resave: true, saveUninitialized: true}));
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "taako", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-//models
-var models = require("./models");
-
-// routes
-var authRoute = require("./routes/auth-routes.js")(app, passport);
-// will need a route for html routing
-// will need a route for api routing
-
-// load passport strats
-require("./config/passport/passport.js")(passport, models.user);
-
+// Requiring our routes
+require("./routes/auth-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 // sync database
-models.sequelize.sync().then(function(){
+db.sequelize.sync().then(function () {
 
-    app.listen(PORT, function(err){
+    app.listen(PORT, function (err) {
         if (!err) {
             console.log("App listening on PORT " + PORT);
         }
@@ -47,7 +39,8 @@ models.sequelize.sync().then(function(){
 
     })
 
-}).catch(function(err) {
+
+}).catch(function (err) {
     console.log("error: " + err);
     console.log("theres something wrong with your sync");
 })
