@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS take_five;
+
+CREATE DATABASE take_five;
