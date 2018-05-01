@@ -8,18 +8,6 @@ var env = require("dotenv").load();
 var exphbs = require("express-handlebars");
 var authController = require("./controllers/auth-controller.js");
 
-// for handlebars
-app.set('views', './views');
-app.engine('handlebars', exphbs({
-    extname: '.handlebars'
-}));
-app.set('view engine', '.handlebars'); 
-
-app.get('/', function(req, res){
-    res.send('Welcome to passport with sequels');
-    
-})
-
 // PORT setup
 var PORT = process.env.PORT || 8080;
 
@@ -39,6 +27,7 @@ var models = require("./models");
 var authRoute = require("./routes/auth-routes.js")(app, passport);
 // will need a route for html routing
 // will need a route for api routing
+
 require("./routes/api-routes.js")(app);
 
 // load passport strats

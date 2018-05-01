@@ -43,8 +43,52 @@
                         <input type="password" placeholder="Enter Password" name="psw" required>
 
                         <button type="submit" id="login-btn">Login</button>
-                        <button class="btn btn-primary" id="close-btn" type="submit">Close</button>
-                        <button class="btn btn-danger" id="close-btn" type="submit">Don't Have an Account?</button>
+
+                        <!-- <button class="btn btn-primary" id="close-btn" type="submit">Close</button> -->
+                        <button class="btn btn-danger" id="signup-btn" type="submit">Don't Have an Account?</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signUpModalCenterTitle">Sign Up</h5>
+
+                </div>
+
+                <div class="modal-body">
+                    <div class="modalTitle text-center">
+                        <h2> Fill Out Sign Up Info!</h2>
+                    </div>
+
+                    <div class="container">
+                        <label for="firstName">
+                            <b>First Name:</b>
+                        </label>
+                        <input type="text" placeholder="Enter your First Name" name="firstName" required>
+
+                        <label for="lastName">
+                            <b>Last Name:</b>
+                        </label>
+                        <input type="text" placeholder="Enter your Last Name" name="lastName" required>
+
+                        <label for="userName">
+                            <b>User Name:</b>
+                        </label>
+                        <input type="text" placeholder="Enter your desired Username" name="userName" required>
+
+                        <label for="psw">
+                            <b>Password:</b>
+                        </label>
+                        <input type="password" placeholder="Enter your desired Password" name="psw" required>
+
+                        <button type="submit" id="signUp-btn">Sign Up</button>
+                        <!-- <button class="btn btn-primary" id="close-btn" type="submit">Close</button> -->
 
                     </div>
                 </div>
@@ -146,7 +190,9 @@
 
                     <div class="col-lg-12">
                         <svg viewBox="0 0 1418 116" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>@WebDesignerMag</title>
+                          
+                            <title>TAKE5</title>
+
                             <g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="0">
                                 <text id="@WebDesignerMag" stroke="#fff" fill="#645F5A" font-weight="normal" font-family="PermanentMarker-Regular, Permanent Marker"
                                     font-size="144">
@@ -206,7 +252,11 @@
                             <option value="60">60 minutes</option>
                             <option value="90">90 minutes</option>
                             <option value="120">120 minutes</option>
+
+
                             <option value="test">Test</option>
+
+
                         </select>
                     </div>
                 </div>
@@ -222,7 +272,9 @@
                             </div>
 
                         </form>
-                        <button onclick="myFunction()">SUBMIT</button>
+
+                        <button onclick='myFunction()'>SUBMIT</button>
+
                         <div="row">
                             <div="col-md-8" class="line-1 anim-typewriter">
 
@@ -232,7 +284,9 @@
             </div>
             <div class="container feed">
                 <div class="card mb-3">
-                    <img class="card-img-top" src="placeholder-1000x400.png" alt="Card image cap">
+
+                    <img class="card-img-top" src="../images/Bbc_news.png" alt="Card image cap">
+
                     <div class="card-body">
                         <h5 class="card-title">FEED 1</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nesciunt voluptas dicta beatae,
@@ -257,7 +311,9 @@
                                 voluptatibus assumenda consequatur in blanditiis?</small>
                         </p>
                     </div>
-                    <img class="card-img-bottom" src="placeholder-1000x400.png" alt="Card image cap">
+
+                    <img class="card-img-bottom" src="../images/Reddit.jpg" alt="Card image cap" id="feedImage">
+
                 </div>
             </div>
     </div>
@@ -276,22 +332,33 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $('.feed').hide();
             $('#loginModalCenter').modal('show');
             $(document).on('click', '#login-btn', function () {
+
+                // on sign in send request to login and populate all account stuff
                 $('#loginModalCenter').modal('');
+
             });
 
             $(document).on('click', '#close-btn', function () {
                 console.log("test");
                 $('#loginModalCenter').modal('hide');
+
+                $("#signUpModal").modal("hide");
             });
 
-            function myFunction() {
+            $(document).on('click', '#signup-btn', function () {
+                $('#loginModalCenter').modal("hide");
+                $('#signUpModal').modal('show');
+            })
+
+        });
+        function myFunction() {
                 var x = document.getElementById("inputTask").value;
                 document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
             }
-
-        });
 
     </script>
 </body>

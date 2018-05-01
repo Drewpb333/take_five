@@ -22,6 +22,9 @@ var contentFeed = {
                     newArticle.urlToImage = articles[j].urlToImage;
                     articlesObj["Article " + j] = newArticle;
                 }
+
+                console.log(articlesObj);
+
                 cb(articlesObj);
             }
         })
@@ -45,11 +48,14 @@ var contentFeed = {
                     newThread.thumbnail = subReddits[j].data.thumbnail;
                     redditObj["Thread " + j] = newThread;
                 }
+                console.log(redditObj);
+
                 cb(redditObj);
             }
         })
     }
 }
+
 
 contentFeed.newsFeed(function(obj){console.log(obj)});
 contentFeed.redditFeed(function(obj){console.log(obj)});

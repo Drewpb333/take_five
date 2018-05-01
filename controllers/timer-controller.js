@@ -29,6 +29,7 @@ var pomodoro = {
         });
     },
 
+
     resetVariables: function (mins, secs, started, test) {
         this.minutes = mins;
         this.seconds = secs;
@@ -59,13 +60,17 @@ var pomodoro = {
     },
 
     startShortBreak: function () {
+
         this.resetVariables(5, 0, true, false);
+
         $('.feed').show();
         //function for showing newsfeed and redditfeed will appear here
     },
 
     stopTimer: function () {
+
         this.resetVariables(25, 0, false, false);
+
         this.updateDom();
         $('.feed').show();
     },
@@ -104,6 +109,8 @@ var pomodoro = {
         this.fillerHeight = 0;
         $('.feed').show();
 
+
+
     }
 };
 
@@ -137,8 +144,10 @@ function timerChoice(choice) {
             setTimeout(startTimer, 60 * 60 * 1000);
             setTimeout(startTimer, 90 * 60 * 1000);
             break;
+
         case "test":
             startTest();
+
     }
 }
 
@@ -149,6 +158,7 @@ function startTimer() {
     }, 25 * 60 * 1000);
 }
 
+
 //for 10 second test function
 function startTest() {
     pomodoro.startTest.apply(pomodoro);
@@ -156,3 +166,4 @@ function startTest() {
         pomodoro.startTestBreak.apply(pomodoro);
     }, 10 * 1000);
 }
+
