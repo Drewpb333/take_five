@@ -23,6 +23,7 @@ var contentFeed = {
                     articlesObj["Article " + j] = newArticle;
                 }
 
+
                 console.log(articlesObj);
               
                 cb(articlesObj);
@@ -55,6 +56,7 @@ var contentFeed = {
         })
     }
 }
+
 
 
 contentFeed.newsFeed(function(obj){console.log(obj)});

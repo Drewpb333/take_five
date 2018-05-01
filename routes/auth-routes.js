@@ -1,39 +1,35 @@
-var authController = require("../controllers/auth-controller.js");
+// Requiring path to so we can use relative routes to our HTML files
+var path = require("path");
 
-module.exports  = function(app, passport){
-    // gets the information from the signup page
-    app.get('/signup', authController.signUp);
-    
-    app.post('/signup', passport.authenticate('local-signup', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/signup'
-    }));
+// Requiring our custom middleware for checking if a user is logged in
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-    // gets the information from the sign in page
-    app.get('/signin', authController.signIn);
-    // populates the signup page
+module.exports = function(app) {
 
-    app.post('/signin', passport.authenticate('local-signin', {
-        successRedirect: '/dashboard',
-        failureRedirect: '/signin'
-    }));
-    
-    app.get('/dashboard', isLoggedIn, authController.dashBoard);
+  app.get("/", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/home");
+    }
+    // res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
 
-    app.get('logout',authController.logOut);
+  app.get("/login", function(req, res) {
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/userlist");
+    }
+    // res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
 
-
-    function isLoggedIn(req, res, next) {
-        if (req.isAuthenticated()) {
-            return next();
-        }
-        res.redirect('/signin ');
-    };
-
+  // Here we've add our isAuthenticated middleware to this route.
+  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  app.get("/userlist", isAuthenticated, function(req, res) {
+    // res.sendFile(path.join(__dirname, "../public/members.html"));
+    console.log("user authenticated");
+  });
 
 };
-
-// these routes should only handle authentication.
 
 
 
