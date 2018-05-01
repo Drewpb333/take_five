@@ -29,27 +29,48 @@ var pomodoro = {
         });
     },
 
-    resetVariables: function (mins, secs, started) {
+
+    resetVariables: function (mins, secs, started, test) {
         this.minutes = mins;
         this.seconds = secs;
         this.started = started;
-        this.fillerIncrement = 200 / (this.minutes * 60);
+        if (test) {
+            this.fillerIncrement = 200 / this.seconds;
+        } else {
+            this.fillerIncrement = 200 / (this.minutes * 60);
+        }
         this.fillerHeight = 0;
     },
 
+    //lasts 10 seconds
+    startTest: function () {
+        this.resetVariables(0, 10, true, true);
+        $('.feed').hide();
+    },
+
+    //lasts 10 seconds
+    startTestBreak: function () {
+        this.resetVariables(0, 10, true, true);
+        $('.feed').show();
+    },
+
     startWork: function () {
-        this.resetVariables(25, 0, true);
+        this.resetVariables(25, 0, true, false);
         $('.feed').hide();
     },
 
     startShortBreak: function () {
-        this.resetVariables(5, 0, true);
+
+        this.resetVariables(5, 0, true, false);
+
         $('.feed').show();
         //function for showing newsfeed and redditfeed will appear here
     },
 
     stopTimer: function () {
-        this.resetVariables(25, 0, false);
+
+        this.resetVariables(25, 0, false, false);
+
         this.updateDom();
         $('.feed').show();
     },
@@ -87,7 +108,9 @@ var pomodoro = {
         this.started = false;
         this.fillerHeight = 0;
         $('.feed').show();
-        
+
+
+
     }
 };
 
@@ -121,6 +144,10 @@ function timerChoice(choice) {
             setTimeout(startTimer, 60 * 60 * 1000);
             setTimeout(startTimer, 90 * 60 * 1000);
             break;
+
+        case "test":
+            startTest();
+
     }
 }
 
@@ -129,5 +156,14 @@ function startTimer() {
     setTimeout(function () {
         pomodoro.startShortBreak.apply(pomodoro);
     }, 25 * 60 * 1000);
+}
+
+
+//for 10 second test function
+function startTest() {
+    pomodoro.startTest.apply(pomodoro);
+    setTimeout(function () {
+        pomodoro.startTestBreak.apply(pomodoro);
+    }, 10 * 1000);
 }
 
