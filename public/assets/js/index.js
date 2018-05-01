@@ -1,6 +1,6 @@
 //modal prompts 1 and 2 as well as input storage
 $(document).ready(function () {
-    //MODAL INPUT SECTION
+    //MODAL INPUT description
     $('.feed').hide();
     $('#loginModalCenter').modal('show');
     $(document).on('click', '#login-btn', function () {
@@ -26,4 +26,3 @@ $(document).ready(function () {
         document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
     }
 });
-
