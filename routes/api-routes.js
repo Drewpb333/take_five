@@ -34,6 +34,8 @@ module.exports = function (app) {
         firstname: newUser.firstName,
         lastName: newUser.lastName
       });
+      // storing all of the response in session storage.
+      sessionStorage.setItem(res);
     }).catch(function (err) {
       console.log(err);
       res.json(err);
