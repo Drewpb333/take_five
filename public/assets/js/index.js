@@ -9,7 +9,10 @@ $(document).ready(function () {
 
 
     });
-
+    
+    $(document).on("click", '#login-btn', function() {
+        $('#loginModalCenter').modal("hide");
+    })
     // $(document).on('click', '#close-btn', function () {
     //     console.log("test");
     //     $('#loginModalCenter').modal('hide');
