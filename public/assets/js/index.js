@@ -9,6 +9,13 @@ $(document).ready(function () {
 
 
     });
+<<<<<<< HEAD
+=======
+    
+    $(document).on("click", '#login-btn', function() {
+        $('#loginModalCenter').modal("hide");
+    })
+>>>>>>> 2a8d1e376b209783d29e4c9ff37da54e5d4a43de
     // $(document).on('click', '#close-btn', function () {
     //     console.log("test");
     //     $('#loginModalCenter').modal('hide');
