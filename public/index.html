@@ -71,12 +71,12 @@
                         <label for="nfirstName">
                             <b>First Name:</b>
                         </label>
-                        <input type="text" placeholder="Enter your First Name" name="firstName" id="firstName-signUp"required>
+                        <input type="text" placeholder="Enter your First Name" name="firstName" id="firstName-signUp" required>
 
                         <label for="nlastName">
                             <b>Last Name:</b>
                         </label>
-                        <input type="text" placeholder="Enter your Last Name" name="lastName" id="lastName-signUp"required>
+                        <input type="text" placeholder="Enter your Last Name" name="lastName" id="lastName-signUp" required>
 
                         <label for="userName">
                             <b>User Name:</b>
@@ -283,23 +283,13 @@
                     <img class="card-img-top" src="/assets/images/Bbc_news.png" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">FEED 1</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nesciunt voluptas dicta beatae,
-                            sed eaque iure repudiandae accusamus iusto omnis eligendi porro obcaecati odio animi. Natus dolores
-                            vitae hic obcaecati?</p>
-                        <p class="card-text">
-                            
-                        </p>
+                        <div class="newsfeed-text"></div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">FEED 2</h5>
-                        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem error blanditiis aliquam dolorum
-                            laborum corrupti tenetur quas, possimus odio, quaerat, nobis velit ea excepturi dolor sapiente
-                            labore at quisquam commodi.</p>
-                        <p class="card-text">
-                            
-                        </p>
+                        <div class="redditfeed-text"></div>
                     </div>
                     <img class="card-img-bottom" src="/assets/images/Reddit.jpg" alt="Card image cap" id="feedImage">
                 </div>
@@ -324,7 +314,7 @@
                 $('#loginModalCenter').modal('');
                 // hide the modal
                 // show the home screen
-                
+
 
             });
 
@@ -340,12 +330,39 @@
             })
 
         });
+
         function myFunction() {
-                var x = document.getElementById("inputTask").value;
-                document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
+            var x = document.getElementById("inputTask").value;
+            document.getElementById("myAgenda").innerHTML += "<br>" + x + "<br>";
+        }
+
+        $.get("/api/newsfeed", function (data) {
+            console.log("Newsfeed API");
+            var newsFeedDiv = $(".newsfeed-text");
+            for (var i = 0; i < 10; i++) {
+                var currentArticle = data["Article " + i];
+                var newDiv = $("<div >");
+                newDiv.append("<img class=img-thumbnail src=" + currentArticle.urlToImage + "></img>" );
+                newDiv.append("<a src=" + currentArticle.url + ">" + currentArticle.title + "</a>");
+                newDiv.append(currentArticle.description);
+                newsFeedDiv.append(newDiv);
             }
+        })
+
+        $.get("/api/redditfeed", function (data) {
+            console.log("Reddit API");
+            var redditFeedDiv = $(".redditfeed-text");
+            for (var i = 0; i < 10; i++) {
+                var currentThread = data["Thread " + i];
+                var newDiv = $("<div>");
+                newDiv.append("<img src=" + currentThread.thumbnail + "></img>");
+                newDiv.append("<a src=" + currentThread.url + ">" + currentThread.title + "</a>");
+                newDiv.append(currentThread.permalink);
+                redditFeedDiv.append(newDiv);
+            }
+        })
     </script>
-    
+
 </body>
 
 </html>

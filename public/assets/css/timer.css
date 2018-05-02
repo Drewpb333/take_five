@@ -13,6 +13,13 @@
 
   body{
     background-image: url("../images/desk.jpg");
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   .container svg {
@@ -22,15 +29,18 @@
     fill: none;
     stroke: white;
     stroke-width: 4;
+    
   }
   
   .container svg tspan>tspan {
     stroke-dasharray: 1500;
     stroke-dashoffset: -1500;
+    animation-iteration-count:infinite;
   }
   
   .container svg tspan>tspan:nth-of-type(1) {
     animation: draw 300ms 150ms forwards;
+    
   }
   
   .container svg tspan>tspan:nth-of-type(2) {
