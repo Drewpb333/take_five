@@ -340,7 +340,7 @@
                 var currentArticle = data["Article " + i];
 
                 var newDiv = $("<div>");
-                newDiv.append("<img src=" + currentArticle.urlToImage + "></img>");
+                newDiv.append("<img class='img-thumbnail' src=" + currentArticle.urlToImage + "></img>");
                 newDiv.append("<a style='color: blue' href=" + currentArticle.url + ">" + currentArticle.title + "</a>");
                 newDiv.append('<br>' + currentArticle.description);
                 newsFeedDiv.append(newDiv);
