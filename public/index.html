@@ -295,7 +295,7 @@
                 </div>
             </div>
     </div>
-
+    
 
     <script src="/assets/js/timer-controller.js"></script>
     <script src="/assets/js/index.js"></script>
@@ -338,8 +338,8 @@
             var newsFeedDiv = $(".newsfeed-text");
             for (var i = 0; i < 10; i++) {
                 var currentArticle = data["Article " + i];
-                var newDiv = $("<div>");
-                newDiv.append("<img src=" + currentArticle.urlToImage + "></img>");
+                var newDiv = $("<div >");
+                newDiv.append("<img class=img-thumbnail src=" + currentArticle.urlToImage + "></img>" );
                 newDiv.append("<a src=" + currentArticle.url + ">" + currentArticle.title + "</a>");
                 newDiv.append(currentArticle.description);
                 newsFeedDiv.append(newDiv);
