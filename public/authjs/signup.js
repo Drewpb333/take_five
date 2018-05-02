@@ -37,9 +37,10 @@ $(document).ready(function() {
         firstName: firstName,
         lastName: lastName
       }).then(function(data) {
-        window.location.replace(data);
+        console.log(data);
         // If there's an error, handle it by throwing up a boostrap alert
       }).catch(handleLoginErr);
+
     }
   
     function handleLoginErr(err) {

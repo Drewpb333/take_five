@@ -1,5 +1,5 @@
 {
-  "name": "take-a-break",
+  "name": "take_five",
   "version": "1.0.0",
   "description": "Web App based on the Pomodoro time management method.",
   "main": "server.js",
@@ -9,21 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/will-miller93/Take-A-Break.git"
+    "url": "git+https://github.com/will-miller93/take_five.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/will-miller93/Take-A-Break/issues"
+    "url": "https://github.com/will-miller93/take_five/issues"
   },
-  "homepage": "https://github.com/will-miller93/Take-A-Break#readme",
+  "homepage": "https://github.com/will-miller93/take_five#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "inquirer": "^5.2.0",
     "mysql": "^2.15.0",
